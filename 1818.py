@@ -6,7 +6,7 @@ except:
     os.system("pip install requests")
 
 
-ugen=open("/sdcard/r-ua.txt","r").read().splitlines()
+ugen=open("r-ua.txt","r").read().splitlines()
 
 #e="100024864368249"
 
