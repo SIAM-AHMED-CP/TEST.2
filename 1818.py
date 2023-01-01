@@ -1,4 +1,4 @@
-import re, time,random,os,sys
+import re, time,random,os,sys,string 
 from concurrent.futures import ThreadPoolExecutor as tdp
 try:
     import requests as r
