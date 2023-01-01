@@ -92,8 +92,8 @@ def c(e,pw):
                 if "checkpoint" in x:
                     cp+=1
                     cv=dc["checkpoint"][13:28]
-                    print(f"\u001b[1;36mCP\n{e}-{cv} - {p}\u001b[0m")
-                    print("\u001b[1;94m"+coki+"\u001b[0m\n\n")
+                    print(f"\u001b[1;36mCP {e}-{cv} - {p}\u001b[0m")
+                    #print("\u001b[1;94m"+coki+"\u001b[0m\n\n")
                     open("sp.txt","a").write(f"{e} {cv} {p}\n")
                     status=1
                     
