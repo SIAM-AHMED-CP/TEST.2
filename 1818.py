@@ -1,5 +1,4 @@
 import re, time,random,os,sys
-os.system("git pull")
 from concurrent.futures import ThreadPoolExecutor as tdp
 try:
     import requests as r
