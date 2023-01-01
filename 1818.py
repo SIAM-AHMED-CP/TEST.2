@@ -1,4 +1,4 @@
-import re, time,random,os,sys,string 
+import re, time,random,os,sys,string
 from concurrent.futures import ThreadPoolExecutor as tdp
 try:
     import requests as r
@@ -6,7 +6,8 @@ except:
     os.system("pip install requests")
 
 
-ugen=open("r-ua.txt","r").read().splitlines()
+ugen=open("/sdcard/r-ua.txt","r").read().splitlines()
+
 #e="100024864368249"
 
 #p="941186"
@@ -29,7 +30,8 @@ def c(e,pw):
     #print(s.headers)
     #print(c1)
     hd1={
-        'user-agent':ua}
+        'user-agent':ua
+    }
     s.headers.update(hd1)
     rt=s.get("https://d.facebook.com/login/?next&ref=dbl&fl&login_from_aymh=1&refid=8")
     rs=rt.text
