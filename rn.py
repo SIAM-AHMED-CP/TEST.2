@@ -1,3 +1,7 @@
+#coded by SIAM AHMED
+#user agent is copied from any open source code
+
+
 import re, time,random,os,sys,string
 from concurrent.futures import ThreadPoolExecutor as tdp
 try:
