@@ -1167,7 +1167,10 @@ code=input("Enter a Code:")
 #305#random.choice(codes)
 lim=int(input("Limit:"))
 pslen=int(input("Password Length (6-11):"))
-adpi=int(input("Additional passwords:"))
+try:
+    adpi=int(input("Additional passwords:"))
+except:
+    adpi=0
 adp=[]
 for i in range(adpi):
     adp.append(input("Password:"))
